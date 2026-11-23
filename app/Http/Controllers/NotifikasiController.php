@@ -12,7 +12,7 @@ class NotifikasiController extends Controller
     {
         $user = $request->user();
 
-        return view($user->role . '.notifikasi', [
+        return view('pages.' . $user->role . '.notifikasi', [
             'daftar' => $user->notifikasi()->latest()->paginate(15),
         ]);
     }

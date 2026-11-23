@@ -23,7 +23,7 @@ class LowonganController extends Controller
             $query->where('status', $request->query('status'));
         }
 
-        return view('admin.lowongan', [
+        return view('pages.admin.lowongan.index', [
             'daftar' => $query->paginate(10)->withQueryString(),
             'perusahaan' => Perusahaan::where('is_active', true)->orderBy('nama')->get(),
         ]);

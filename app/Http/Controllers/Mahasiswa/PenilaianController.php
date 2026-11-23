@@ -11,6 +11,6 @@ class PenilaianController extends Controller
         $penempatan = auth()->user()->mahasiswa->penempatan()
             ->with(['penilaian.mentor.user', 'lamaran.lowongan.perusahaan'])->latest()->get();
 
-        return view('mahasiswa.penilaian', ['daftar' => $penempatan]);
+        return view('pages.mahasiswa.penilaian', ['daftar' => $penempatan]);
     }
 }

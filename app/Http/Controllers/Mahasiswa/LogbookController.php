@@ -27,7 +27,7 @@ class LogbookController extends Controller
                 ->groupBy('status')->pluck('total', 'status');
         }
 
-        return view('mahasiswa.logbook', [
+        return view('pages.mahasiswa.logbook.index', [
             'penempatan' => $penempatan, 'daftar' => $daftar, 'hitung' => $hitung,
         ]);
     }

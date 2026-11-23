@@ -15,7 +15,7 @@ class AuthController extends Controller
 {
     public function formLogin()
     {
-        return view('akun.login');
+        return view('login');
     }
 
     public function login(Request $request): RedirectResponse
@@ -51,7 +51,7 @@ class AuthController extends Controller
 
     public function formRegister()
     {
-        return view('akun.register');
+        return view('register');
     }
 
     /** Registrasi hanya untuk mahasiswa. Mentor dan admin dibuat oleh admin. */
@@ -105,4 +105,3 @@ class AuthController extends Controller
         return redirect()->route('beranda');
     }
 }
-

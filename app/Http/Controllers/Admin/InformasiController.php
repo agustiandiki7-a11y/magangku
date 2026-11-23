@@ -13,7 +13,7 @@ class InformasiController extends Controller
 {
     public function index()
     {
-        return view('admin.informasi', ['daftar' => Informasi::latest()->paginate(10)]);
+        return view('pages.admin.informasi.index', ['daftar' => Informasi::latest()->paginate(10)]);
     }
 
     public function store(Request $request): RedirectResponse

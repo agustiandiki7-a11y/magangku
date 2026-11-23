@@ -15,7 +15,7 @@ class ProfilController extends Controller
     {
         $user = auth()->user();
 
-        return view('mahasiswa.profil', ['user' => $user, 'mahasiswa' => $user->mahasiswa]);
+        return view('pages.mahasiswa.profil', ['user' => $user, 'mahasiswa' => $user->mahasiswa]);
     }
 
     public function update(Request $request): RedirectResponse

@@ -18,6 +18,6 @@ class AktivitasController extends Controller
             });
         }
 
-        return view('admin.aktivitas', ['daftar' => $query->paginate(20)->withQueryString()]);
+        return view('pages.admin.aktivitas.index', ['daftar' => $query->paginate(20)->withQueryString()]);
     }
 }

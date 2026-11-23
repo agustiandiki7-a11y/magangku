@@ -34,7 +34,7 @@ class PenggunaController extends Controller
             });
         }
 
-        return view('admin.pengguna', [
+        return view('pages.admin.pengguna.index', [
             'daftar' => $query->paginate(10)->withQueryString(),
             'perusahaan' => Perusahaan::orderBy('nama')->get(),
             'hitung' => User::selectRaw('role, count(*) as total')->groupBy('role')->pluck('total', 'role'),

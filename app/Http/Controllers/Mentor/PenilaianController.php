@@ -16,7 +16,7 @@ class PenilaianController extends Controller
         $daftar = $request->user()->mentor->penempatan()
             ->with(['mahasiswa.user', 'lamaran.lowongan', 'penilaian'])->latest()->paginate(10);
 
-        return view('mentor.penilaian', ['daftar' => $daftar]);
+        return view('pages.mentor.penilaian', ['daftar' => $daftar]);
     }
 
     /** Simpan (atau perbarui) penilaian. Nilai akhir = rata-rata 5 komponen. */

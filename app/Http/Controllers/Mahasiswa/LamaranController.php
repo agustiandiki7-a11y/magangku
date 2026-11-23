@@ -22,7 +22,7 @@ class LamaranController extends Controller
             ->with(['lowongan.perusahaan', 'dokumen', 'penempatan.mentor.user'])
             ->latest()->paginate(10);
 
-        return view('mahasiswa.lamaran', ['daftar' => $lamaran]);
+        return view('pages.mahasiswa.lamaran.index', ['daftar' => $lamaran]);
     }
 
     /** Riwayat aktivitas lamaran (kronologis) dari log sistem milik pengguna ini. */
@@ -35,7 +35,7 @@ class LamaranController extends Controller
         $diproses = auth()->user()->mahasiswa->lamaran()->with('lowongan.perusahaan')
             ->whereIn('status', ['diterima', 'ditolak'])->latest()->get();
 
-        return view('mahasiswa.riwayat', ['riwayat' => $riwayat, 'selesai' => $diproses]);
+        return view('pages.mahasiswa.lamaran.riwayat', ['riwayat' => $riwayat, 'selesai' => $diproses]);
     }
 
     public function form(Lowongan $lowongan)
@@ -53,7 +53,7 @@ class LamaranController extends Controller
             return redirect()->route('mahasiswa.lamaran')->with('gagal', 'Anda sudah melamar lowongan ini.');
         }
 
-        return view('mahasiswa.ajukan', ['lowongan' => $lowongan->load('perusahaan'), 'mahasiswa' => $mahasiswa]);
+        return view('pages.mahasiswa.lamaran.ajukan', ['lowongan' => $lowongan->load('perusahaan'), 'mahasiswa' => $mahasiswa]);
     }
 
     public function store(Request $request, Lowongan $lowongan): RedirectResponse

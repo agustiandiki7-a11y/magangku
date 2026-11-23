@@ -27,7 +27,7 @@ class LogbookController extends Controller
             $query->where('status', $status);
         }
 
-        return view('mentor.logbook', [
+        return view('pages.mentor.logbook.index', [
             'daftar' => $query->paginate(10)->withQueryString(),
             'status' => $status,
             'hitung' => Logbook::whereIn('penempatan_id', $penempatanIds)

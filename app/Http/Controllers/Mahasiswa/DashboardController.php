@@ -26,7 +26,7 @@ class DashboardController extends Controller
         // Lowongan terbaru yang belum dilamar mahasiswa ini.
         $sudahDilamar = $mahasiswa->lamaran()->pluck('lowongan_id');
 
-        return view('mahasiswa.dashboard', [
+        return view('pages.mahasiswa.dashboard', [
             'mahasiswa' => $mahasiswa,
             'penempatan' => $penempatan,
             'jumlahLamaran' => $mahasiswa->lamaran()->count(),

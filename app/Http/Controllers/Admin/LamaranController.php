@@ -26,7 +26,7 @@ class LamaranController extends Controller
             $query->whereHas('mahasiswa.user', fn ($u) => $u->where('name', 'like', "%{$q}%"));
         }
 
-        return view('admin.lamaran', [
+        return view('pages.admin.lamaran.index', [
             'daftar' => $query->paginate(10)->withQueryString(),
             'hitung' => Lamaran::selectRaw('status, count(*) as total')->groupBy('status')->pluck('total', 'status'),
             'mentor' => Mentor::with(['user', 'perusahaan'])->get(),

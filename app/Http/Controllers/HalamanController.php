@@ -6,14 +6,12 @@ use App\Models\Informasi;
 use App\Models\Lowongan;
 use Illuminate\Http\Request;
 
-/**
- * Halaman publik (bisa dibuka tanpa login).
- */
+/** Halaman publik (bisa dibuka tanpa login). */
 class HalamanController extends Controller
 {
     public function beranda()
     {
-        return view('halaman.beranda', [
+        return view('index', [
             'lowongan' => Lowongan::terbuka()->with('perusahaan')->latest()->take(3)->get(),
             'informasi' => Informasi::where('status', 'tampil')->latest()->take(3)->get(),
         ]);
@@ -21,7 +19,7 @@ class HalamanController extends Controller
 
     public function informasi()
     {
-        return view('halaman.informasi', [
+        return view('pages.publik.informasi.index', [
             'daftar' => Informasi::where('status', 'tampil')->latest()->paginate(8),
         ]);
     }
@@ -43,7 +41,7 @@ class HalamanController extends Controller
             $query->where('lokasi', $lokasi);
         }
 
-        return view('halaman.lowongan', [
+        return view('pages.publik.lowongan.index', [
             'daftar' => $query->latest()->paginate(9)->withQueryString(),
             'daftarBidang' => Lowongan::terbuka()->distinct()->orderBy('bidang')->pluck('bidang'),
             'daftarLokasi' => Lowongan::terbuka()->distinct()->orderBy('lokasi')->pluck('lokasi'),
@@ -54,12 +52,12 @@ class HalamanController extends Controller
     {
         $lowongan->load('perusahaan');
 
-        return view('halaman.detail-lowongan', ['lowongan' => $lowongan]);
+        return view('pages.publik.lowongan.detail', ['lowongan' => $lowongan]);
     }
 
     public function tentang()
     {
-        return view('halaman.tentang');
+        return view('pages.publik.tentang');
     }
 
     /** /dashboard -> arahkan ke dashboard sesuai role. */

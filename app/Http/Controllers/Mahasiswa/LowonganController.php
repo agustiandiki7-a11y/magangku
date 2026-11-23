@@ -25,7 +25,7 @@ class LowonganController extends Controller
             $query->where('lokasi', $lokasi);
         }
 
-        return view('mahasiswa.lowongan', [
+        return view('pages.mahasiswa.lowongan.index', [
             'daftar' => $query->latest()->paginate(9)->withQueryString(),
             'daftarBidang' => Lowongan::terbuka()->distinct()->orderBy('bidang')->pluck('bidang'),
             'daftarLokasi' => Lowongan::terbuka()->distinct()->orderBy('lokasi')->pluck('lokasi'),
@@ -37,7 +37,7 @@ class LowonganController extends Controller
     {
         $lowongan->load('perusahaan');
 
-        return view('mahasiswa.detail-lowongan', [
+        return view('pages.mahasiswa.lowongan.detail', [
             'lowongan' => $lowongan,
             'lamaran' => auth()->user()->mahasiswa->lamaran()->where('lowongan_id', $lowongan->id)->first(),
         ]);

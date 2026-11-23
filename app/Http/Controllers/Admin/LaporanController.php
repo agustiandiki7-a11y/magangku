@@ -15,7 +15,7 @@ class LaporanController extends Controller
     {
         $query = $this->kueriLamaran($request);
 
-        return view('admin.laporan', [
+        return view('pages.admin.laporan.index', [
             'daftar' => (clone $query)->latest()->paginate(15)->withQueryString(),
             'ringkas' => (clone $query)->selectRaw('status, count(*) as total')->groupBy('status')->pluck('total', 'status'),
             'penempatanAktif' => Penempatan::where('status', 'aktif')->count(),

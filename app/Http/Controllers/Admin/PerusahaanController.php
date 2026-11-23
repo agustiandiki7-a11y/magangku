@@ -20,7 +20,7 @@ class PerusahaanController extends Controller
             });
         }
 
-        return view('admin.perusahaan', ['daftar' => $query->paginate(10)->withQueryString()]);
+        return view('pages.admin.perusahaan.index', ['daftar' => $query->paginate(10)->withQueryString()]);
     }
 
     public function store(Request $request): RedirectResponse

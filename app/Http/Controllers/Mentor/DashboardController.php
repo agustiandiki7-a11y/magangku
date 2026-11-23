@@ -18,7 +18,7 @@ class DashboardController extends Controller
             ->withCount(['logbook as menunggu_count' => fn ($q) => $q->where('status', 'menunggu')])
             ->get();
 
-        return view('mentor.dashboard', [
+        return view('pages.mentor.dashboard', [
             'mentor' => $mentor,
             'bimbingan' => $bimbingan,
             'jumlahBimbingan' => $bimbingan->count(),

@@ -19,7 +19,7 @@ class MahasiswaController extends Controller
             $query->whereHas('mahasiswa.user', fn ($u) => $u->where('name', 'like', "%{$q}%"));
         }
 
-        return view('mentor.mahasiswa', ['daftar' => $query->latest()->paginate(10)->withQueryString()]);
+        return view('pages.mentor.mahasiswa.index', ['daftar' => $query->latest()->paginate(10)->withQueryString()]);
     }
 
     /** Detail satu mahasiswa. Mentor hanya boleh membuka mahasiswa bimbingannya. */
@@ -29,7 +29,7 @@ class MahasiswaController extends Controller
 
         $penempatan->load(['mahasiswa.user', 'lamaran.lowongan.perusahaan', 'lamaran.dokumen', 'penilaian']);
 
-        return view('mentor.detail-mahasiswa', [
+        return view('pages.mentor.mahasiswa.detail', [
             'penempatan' => $penempatan,
             'logbook' => $penempatan->logbook()->with('persetujuan')->orderByDesc('tanggal')->paginate(10),
         ]);

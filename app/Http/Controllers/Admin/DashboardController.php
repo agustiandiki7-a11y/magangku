@@ -28,7 +28,7 @@ class DashboardController extends Controller
             $nilai[] = $perBulan[$bulan->format('Y-m')] ?? 0;
         }
 
-        return view('admin.dashboard', [
+        return view('pages.admin.dashboard', [
             'jumlahMahasiswa' => Mahasiswa::count(),
             'jumlahMentor' => Mentor::count(),
             'jumlahPerusahaan' => Perusahaan::count(),
