@@ -6,8 +6,9 @@
     <title>@yield('judul', 'Beranda') - MagangKu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magangku.css') }}">
 </head>
 <body>
 {{-- Layout halaman PUBLIK (beranda, informasi, lowongan, tentang). Isi halaman ada di @section('konten'). --}}
@@ -21,6 +22,7 @@
 </main>
 
 @include('partials.publik.footer')
-<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('assets/js/magangku.js') }}"></script>
 </body>
 </html>

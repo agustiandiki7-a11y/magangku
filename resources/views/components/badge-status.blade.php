@@ -18,4 +18,4 @@
     ];
     [$teks, $warna] = $peta[$status] ?? [ucfirst($status), 'muted'];
 @endphp
-<span class="badge badge-{{ $warna }}">{{ $teks }}</span>
+<span class="badge-soft badge-soft-{{ $warna }}">{{ $teks }}</span>

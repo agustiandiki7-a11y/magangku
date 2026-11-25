@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
 
         // ---------- Mahasiswa ----------
         $mahasiswa = [
-            ['Diki Agustian', 'diki', 'diki@magangku.test'],
+            ['Diki Agustian', 'diki', ' '],
             ['Ahmad Fauzi', 'ahmad.fauzi', 'ahmad@magangku.test'],
             ['Siti Nurhaliza', 'siti.nurhaliza', 'siti@magangku.test'],
         ];
