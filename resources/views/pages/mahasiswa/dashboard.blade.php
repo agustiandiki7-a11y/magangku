@@ -4,8 +4,8 @@
 
 @section('konten')
 <div class="welcome">
-    <h1>Selamat datang kembali,<br>{{ auth()->user()->name }}! 👋</h1>
-    <p>Pantau perjalanan magangmu dan kelola aktivitasmu di sini.</p>
+    <h1>Halo,<br>{{ auth()->user()->name }}</h1>
+    <p>Pantau perjalanan magangmu dan kelola aktivitasmu di sini</p>
     <div class="line"></div>
 </div>
 

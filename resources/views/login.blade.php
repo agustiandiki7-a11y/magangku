@@ -54,12 +54,6 @@
             <p class="text-center small mt-2">Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
             <p class="text-center small"><a href="{{ route('beranda') }}">&larr; Kembali ke beranda</a></p>
 
-            @if (app()->environment('local'))
-                <div class="demo-box">
-                    <b>Akun contoh</b> (password: <code>password123</code>)<br>
-                    Admin: <code>admin</code> · Mahasiswa: <code>diki</code> · Mentor: <code>andi.pratama</code>
-                </div>
-            @endif
         </div>
     </main>
 </div>
