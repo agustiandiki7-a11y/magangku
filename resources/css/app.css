@@ -1,11 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
-
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
-:root {
-    --font-sans: 'Instrument Sans', sans-serif;
-}
-
-body {
-    font-family: var(--font-sans);
-}
+ /*
+ * Tailwind sudah dibuang. MagangKu memakai Bootstrap 5.
+ * Bootstrap, Bootstrap Icons, dan Chart.js dimuat dari CDN di layout Blade,
+ * dan gaya khas MagangKu ada di public/assets/css/magangku.css.
+ * File ini sengaja dibiarkan kosong supaya @vite lama (kalau masih ada) tidak error.
+ */

@@ -11,10 +11,19 @@ class Lowongan extends Model
 {
     protected $table = 'lowongan';
 
-    protected $fillable = [
-        'perusahaan_id', 'judul', 'bidang', 'lokasi', 'durasi_bulan',
-        'kuota', 'deskripsi', 'persyaratan', 'batas_daftar', 'status',
-    ];
+   protected $fillable = [
+    'perusahaan_id',
+    'judul',
+    'bidang',
+    'lokasi',
+    'durasi_bulan',
+    'kuota',
+    'deskripsi',
+    'persyaratan',
+    'batas_daftar',
+    'status',
+    'foto',
+];
 
     protected function casts(): array
     {
@@ -36,7 +45,7 @@ class Lowongan extends Model
     {
         return $query->where('status', 'buka')
             ->whereDate('batas_daftar', '>=', now()->toDateString())
-            ->whereHas('perusahaan', fn ($q) => $q->where('is_active', true));
+            ->whereHas('perusahaan', fn($q) => $q->where('is_active', true));
     }
 
     public function sudahDitutup(): bool

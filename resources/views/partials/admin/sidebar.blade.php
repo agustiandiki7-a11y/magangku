@@ -34,7 +34,7 @@
                 <div class="sidebar-label">Sistem</div>
                 <a href="{{ route('admin.informasi') }}" class="sidebar-link {{ request()->routeIs('admin.informasi*') ? 'active' : '' }}"><i class="bi bi-megaphone"></i> Informasi</a>
                 <a href="{{ route('admin.laporan') }}" class="sidebar-link {{ request()->routeIs('admin.laporan*') ? 'active' : '' }}"><i class="bi bi-bar-chart-line"></i> Laporan</a>
-                <a href="{{ route('admin.aktivitas') }}" class="sidebar-link {{ request()->routeIs('admin.aktivitas') ? 'active' : '' }}"><i class="bi bi-clock-history"></i> Riwayat Aktivitas</a>
+                <a href="{{ route('admin.aktivitas') }}" class="sidebar-link {{ request()->routeIs('admin.aktivitas') ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i> Riwayat Login</a>
             </nav>
 
             <div class="sidebar-foot">

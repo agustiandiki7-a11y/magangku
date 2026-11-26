@@ -14,14 +14,14 @@
 <div class="page-head">
     <div>
         <h1>{{ $judulHalaman }}</h1>
-        <p>Kelola akun admin, mahasiswa, dan mentor.</p>
+        <p>Kelola akun mahasiswa dan mentor.</p>
     </div>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambah"><i class="bi bi-plus-lg me-1"></i> Tambah Pengguna</button>
 </div>
 
 <div class="tabs-pill">
-    <a href="{{ route('admin.pengguna') }}" class="tab-link {{ ! request('role') ? 'active' : '' }}">Semua<span class="tab-count">{{ $hitung->sum() }}</span></a>
-    @foreach (['mahasiswa' => 'Mahasiswa', 'mentor' => 'Mentor', 'admin' => 'Admin'] as $kode => $teks)
+    <a href="{{ route('admin.pengguna') }}" class="tab-link {{ ! request('role') ? 'active' : '' }}">Semua<span class="tab-count">{{ $hitung->except('admin')->sum() }}</span></a>
+    @foreach (['mahasiswa' => 'Mahasiswa', 'mentor' => 'Mentor'] as $kode => $teks)
         <a href="{{ route('admin.pengguna', ['role' => $kode]) }}" class="tab-link {{ request('role') === $kode ? 'active' : '' }}">{{ $teks }}<span class="tab-count">{{ $hitung[$kode] ?? 0 }}</span></a>
     @endforeach
 </div>
@@ -41,6 +41,7 @@
             <thead><tr><th>Pengguna</th><th>Role</th><th>Detail</th><th>Status</th><th></th></tr></thead>
             <tbody>
                 @forelse ($daftar as $u)
+                    @continue($u->role === 'admin')
                     @php
                         $nilaiForm = [
                             'name' => $u->name, 'username' => $u->username, 'email' => $u->email, 'role' => $u->role,
@@ -105,7 +106,6 @@
                 <select name="role" class="form-select" data-role-select>
                     <option value="mahasiswa" @selected(old('role') === 'mahasiswa')>Mahasiswa</option>
                     <option value="mentor" @selected(old('role') === 'mentor')>Mentor</option>
-                    <option value="admin" @selected(old('role') === 'admin')>Admin</option>
                 </select>
             </div>
             <div class="mb-3"><label class="form-label">Nama lengkap</label><input name="name" class="form-control" value="{{ old('name') }}" required></div>
